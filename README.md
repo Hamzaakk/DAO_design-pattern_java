@@ -1,4 +1,4 @@
-## DAO
+## DAO : Data Access Object
 
 The Data Access Object (DAO) pattern separates the data access code from the business logic, promoting modularity and maintainability in software applications. It encapsulates the interaction with a data source (like a database) and provides a standardized interface for accessing and managing data.
 ![DAO Explanation](https://i.stack.imgur.com/3XnBN.png)
