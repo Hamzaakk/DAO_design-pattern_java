@@ -12,5 +12,11 @@ public class Main {
         newStagiere.setLogin("john_doe");
         newStagiere.setPassword("password123");
         stagiereDao.addStagiere(newStagiere);
+        // lister les stagieres
+         ArrayList<Stagiere> s = new ArrayList<>();
+        s = (ArrayList<Stagiere>) stagiereDao.fetchall();
+        for ( Stagiere e : s){
+            System.out.println("name : " +e.getName()+" " + e.getLastname());
+        }
     }
 }
