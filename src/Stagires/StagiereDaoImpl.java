@@ -22,6 +22,7 @@ public class StagiereDaoImpl implements StagiereDao{
            while (resultSet.next()){
                stagieres.add(mapResultSetTostagiere(resultSet));
            }
+            conn.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -39,7 +40,7 @@ public class StagiereDaoImpl implements StagiereDao{
             if(resultSet.next()) {
                 return mapResultSetTostagiere(resultSet);
             }
-
+       conn.close();
         }catch (SQLException e) {
             System.out.println(e);
         }
@@ -64,6 +65,8 @@ public class StagiereDaoImpl implements StagiereDao{
             if (generatedKeys.next()) {
                 stagiere.setId(generatedKeys.getInt(1));
             }
+
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,7 +88,7 @@ public class StagiereDaoImpl implements StagiereDao{
             st.setInt(6, stagiere.getId());
             st.executeUpdate();
 
-
+        conn.close();
         }catch (Exception e) {
             System.out.println(e);
         }
@@ -98,6 +101,9 @@ public class StagiereDaoImpl implements StagiereDao{
              PreparedStatement statement = conn.prepareStatement(query)) {
             statement.setInt(1, id);
             statement.executeUpdate();
+
+
+            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
